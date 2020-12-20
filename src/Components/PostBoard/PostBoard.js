@@ -45,7 +45,7 @@ export default class PostBoard extends React.Component {
         },
         "buttons" : {
             "width" : '80%',
-            "max-width" : '450px',
+            "max-width" : '500px',
             "display" : 'flex',
             "justifyContent" : 'space-between',
             "marginTop" : '20px',
