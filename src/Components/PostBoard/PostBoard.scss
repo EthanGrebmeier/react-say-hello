@@ -1,0 +1,9 @@
+.postboard-container{
+    min-width: 680px;
+}
+
+@media screen and (max-width: 800px){
+    .postboard-container{
+        min-width: 350px;
+    }
+}
