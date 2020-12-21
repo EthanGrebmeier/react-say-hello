@@ -56,7 +56,8 @@ export default class PostBoard extends React.Component {
             "width" : '120px',
             "background" : 'transparent',
             "border" : '1px solid white',
-            "color" : 'white'
+            "color" : 'white',
+            "cursor" : 'pointer'
         }
     }
 
