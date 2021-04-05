@@ -31,23 +31,17 @@ export default class PostForm extends React.Component{
             "display" : 'flex',
             "justifyContent" : 'center',
             "alignItems" : 'center',
-            "backgroundColor" : 'rgba(53, 80, 112, .5)',
-            "position" : 'fixed',
-            "zIndex" : '80',
-            "top" : '50%',
-            "transform" : 'translateY(-50%)'
+            "paddingBottom" : '10px',
+            "overflow" : 'hidden'
         },
         "postFormContent" : {
-            "width" : '340px',
-            "height" : '400px',
+            "width" : '100%',
             "borderRadius" : '6px',
-            "position" : 'relative',
             "display" : 'flex',
             "flex-direction" : 'column',
             "justifyContent" : 'space-evenly',
             "alignItems" : 'center',
-            "background" : '#B56576',
-            "color" : 'white',
+            "color" : 'black',
             "border" : '1px solid white',
         },
         "close" : {
@@ -75,7 +69,7 @@ export default class PostForm extends React.Component{
          "input" : {
             "border" : 'none',
             "background" : 'none',
-            "borderBottom" : '1px solid white',
+            "borderBottom" : '1px solid black',
             "fontSize" : '15px'
          },
          "formRow" : {
@@ -83,13 +77,18 @@ export default class PostForm extends React.Component{
             "display" : 'flex',
             "justifyContent" : 'space-between'
         },
+        "buttons" : {
+            "display" : 'flex',
+            "justifyContent" : 'space-between',
+            "width" : '300px'
+        },
         "button" : {
             "width" : '80px',
             "height" : '30px',
             "background" : 'transparent',
-            "border" : '1px solid white',
+            "border" : '1px solid black',
             "borderRadius" : '6px',
-            "color" : 'white',
+            "color" : 'black',
             "fontSize" : '18px',
             "cursor" : 'pointer',
         }
@@ -148,24 +147,12 @@ export default class PostForm extends React.Component{
 
     render(){
         return (
-            <div id="form-grey" className="post-form-container" style={this.styles.postFormContainer} onClick={this.props.closeForm}>
+            <div className="post-form-container" style={this.styles.postFormContainer} >
                 <div className="post-form-content" style={this.styles.postFormContent}>
-                    <button id="form-close" style={this.styles.close} onClick={this.props.closeForm}>
-                        <UilTimes size="30" color="white" id="form-close-button" onClick={this.props.closeForm}/>
-                    </button>
 
-                    <div className="post-header" style={{"textAlign" : 'center', "color" : 'white'}}>
-                        <h1> New Post </h1>
+                    <div className="post-header" style={{"textAlign" : 'center', "color" : 'black'}}>
                         <p> {this.state.errorMessage} </p>
                     </div>
-
-                    <Post 
-                            message={this.state.message}
-                            name={this.state.name}
-                            emoji={this.state.emoji}
-                            color={this.state.color}
-                            date={this.state.date}
-                    />
 
                     <form style={this.styles.form} onSubmit={this.handleSubmit} >
                             <label style={this.styles.label}>
@@ -202,9 +189,17 @@ export default class PostForm extends React.Component{
                                 </select>
                             </label>
 
-                            <button type="submit" style={this.styles.button}>
-                                Post
-                            </button>
+                            <div style={this.styles.buttons}>
+                                <button type="button" onClick={this.props.closeForm} style={this.styles.button}>
+                                    Cancel
+                                </button>
+
+                                <button type="submit" style={this.styles.button}>
+                                    Post
+                                </button>
+                            </div>
+
+
                         </form>
                 </div>
             </div>

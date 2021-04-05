@@ -79,17 +79,11 @@ export default class PostBoard extends React.Component {
     }
 
     closeForm = (event) => {
-        if (event) {
-            if (event.target.id === "form-close" || event.target.id === "form-close-button" || event.target.id === "form-grey"){
-                this.setState({
-                    showForm: false
-                })
-            }
-        } else {
-            this.setState({
-                showForm: false
-            })
-        }
+
+        this.setState({
+            showForm: false
+        })
+
     }
 
     getPosts = (newPost) => {
@@ -153,10 +147,11 @@ export default class PostBoard extends React.Component {
                         Get New Posts
                     </button>
                 </div>
+                {this.state.showForm === true && <PostForm showForm={this.state.showForm} closeForm={this.closeForm} setNewPost={this.setNewPost} /> }
             </div>
 
             {this.renderPosts()}
-            {this.state.showForm === true && <PostForm showForm={this.state.showForm} closeForm={this.closeForm} setNewPost={this.setNewPost} /> }
+
         </div>)
     }
 }
