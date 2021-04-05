@@ -5,6 +5,7 @@ export default function Post(props){
     let styles = {
         post : {
             "backgroundColor": props.color || 'rgba(236, 135, 197, 0.733)',
+            "borderRadius" : '6px',
             "width" : '300px',
             "height" : '70px',
             "marginTop" : '5px',

@@ -40,6 +40,7 @@ export default class PostForm extends React.Component{
         "postFormContent" : {
             "width" : '340px',
             "height" : '400px',
+            "borderRadius" : '6px',
             "position" : 'relative',
             "display" : 'flex',
             "flex-direction" : 'column',
@@ -87,6 +88,7 @@ export default class PostForm extends React.Component{
             "height" : '30px',
             "background" : 'transparent',
             "border" : '1px solid white',
+            "borderRadius" : '6px',
             "color" : 'white',
             "fontSize" : '18px',
             "cursor" : 'pointer',
@@ -149,7 +151,7 @@ export default class PostForm extends React.Component{
             <div id="form-grey" className="post-form-container" style={this.styles.postFormContainer} onClick={this.props.closeForm}>
                 <div className="post-form-content" style={this.styles.postFormContent}>
                     <button id="form-close" style={this.styles.close} onClick={this.props.closeForm}>
-                        <UilTimes size="30" color="white" id="form-close-button" />
+                        <UilTimes size="30" color="white" id="form-close-button" onClick={this.props.closeForm}/>
                     </button>
 
                     <div className="post-header" style={{"textAlign" : 'center', "color" : 'white'}}>

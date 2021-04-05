@@ -21,24 +21,32 @@ export default class PostBoard extends React.Component {
     styles = {
         "postBoard" : {
             "width" : '42%',
-            "height" : '100%',
+            "height" : '100vh',
             "position" : 'relative',
             "display" : 'flex',
             "flexWrap" : 'wrap',
             "justifyContent" : 'space-evenly',
-            "alignItems" : 'center',
+            "alignItems" : 'start',
         },
         "header" : {
-            "width" : '100%',
+            "width" : '100vw',
             "display" : 'flex',
+            "flexDirection": 'column',
             "justifyContent" : 'center',
             "alignItems" : 'center',
-            "color" : 'white',
-            "fontSize" : '32px'
+            "borderBottom" : '1px solid lightgrey',
+            "color" : 'black',
+            "background" : 'white',
+            "fontSize" : '32px',
+            "marginBottom" : '15px',
+            "position" : 'sticky',
+            "top" : '0'
         },
         "loading" : {
-            "height" : '100vh',
-            "width" : '100vw',
+            "position": 'absolute',
+            "top" : '50%',
+            "left" : '50%',
+            "transform" : 'translateX(-50%) translateY(-50%)',
             "display" : 'flex',
             "justifyContent" : 'center',
             "alignItems" : 'center'
@@ -55,8 +63,9 @@ export default class PostBoard extends React.Component {
             "height" : '30px',
             "width" : '120px',
             "background" : 'transparent',
-            "border" : '1px solid white',
-            "color" : 'white',
+            "border" : '1px solid black',
+            "borderRadius" : '8px',
+            "color" : 'black',
             "cursor" : 'pointer'
         }
     }
@@ -136,15 +145,16 @@ export default class PostBoard extends React.Component {
                     Say Hello
                     {this.props.isMobile}
                 </h1>
+                <div className="postboard-buttons" style={this.styles.buttons}>
+                    <button onClick={this.newPostClicked} style={this.styles.button} >
+                        Create a Post
+                    </button>
+                    <button onClick={() => this.getPosts({})} style={this.styles.button}>
+                        Get New Posts
+                    </button>
+                </div>
             </div>
-            <div className="postboard-buttons" style={this.styles.buttons}>
-                <button onClick={this.newPostClicked} style={this.styles.button} >
-                    Create a Post
-                </button>
-                <button onClick={() => this.getPosts({})} style={this.styles.button}>
-                    Get New Posts
-                </button>
-            </div>
+
             {this.renderPosts()}
             {this.state.showForm === true && <PostForm showForm={this.state.showForm} closeForm={this.closeForm} setNewPost={this.setNewPost} /> }
         </div>)
